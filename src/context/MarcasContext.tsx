@@ -6,6 +6,7 @@ import React, {
   Dispatch,
   SetStateAction,
 } from 'react'
+import { getMarcas } from '../api/marcas'
 
 interface Marcas {
   id: number
@@ -28,13 +29,10 @@ export const MarcasContextProvider = ({
 }: MarcasContextProviderProp) => {
   const [marcas, setMarcas] = useState<[Marcas]>()
 
-  const urlApi =
-    'https://my-json-server.typicode.com/levelup-rchlo/carango-bom-api-fake/marcas'
-
   useEffect(() => {
-    fetch(urlApi)
-      .then((resp) => resp.json())
-      .then((json) => setMarcas(json))
+    getMarcas()
+      .then((response) => setMarcas(response.data))
+      .catch((err) => console.log(err))
   }, [])
 
   return (

@@ -6,6 +6,7 @@ import React, {
   SetStateAction,
   ReactNode,
 } from 'react'
+import { getVeiculos } from '../api/veiculos'
 
 interface Veiculo {
   id: number
@@ -33,13 +34,10 @@ export const VeiculosContextProvider = ({
 }: VeiculosContextProviderProps) => {
   const [veiculos, setVeiculos] = useState<[Veiculo]>()
 
-  const urlApi =
-    'https://my-json-server.typicode.com/levelup-rchlo/carango-bom-api-fake/veiculos'
-
   useEffect(() => {
-    fetch(urlApi)
-      .then((resp) => resp.json())
-      .then((json) => setVeiculos(json))
+    getVeiculos()
+      .then((response) => setVeiculos(response.data))
+      .catch((err) => console.log(err))
   }, [])
 
   return (

@@ -6,6 +6,7 @@ import React, {
   useEffect,
   useState,
 } from 'react'
+import { getDashboard } from '../api/dashboard'
 
 interface Dash {
   montante: number
@@ -27,13 +28,10 @@ export const DashboardContext = createContext({} as DashContext | undefined)
 export const DashboardContextProvider = ({ children }: DashContextProvider) => {
   const [dash, setDash] = useState<[Dash]>()
 
-  const urlApi =
-    'https://my-json-server.typicode.com/levelup-rchlo/carango-bom-api-fake/dashboard'
-
   useEffect(() => {
-    fetch(urlApi)
-      .then((resp) => resp.json())
-      .then((json) => setDash(json))
+    getDashboard()
+      .then((response) => setDash(response.data))
+      .catch((err) => console.log(err))
   }, [])
 
   return (
