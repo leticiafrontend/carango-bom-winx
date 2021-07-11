@@ -36,5 +36,5 @@ Disponível em http://localhost:3000
 #### Executar os testes
 
 ```
-yarn jest
+yarn test
 ```
