@@ -4,6 +4,7 @@ import GlobalStyle from './styles/global'
 import { DashboardContextProvider } from './context/DashboardContext'
 import { MarcasContextProvider } from './context/MarcasContext'
 import { VeiculosContextProvider } from './context/VeiculosContext'
+import Menu from './components/Menu/Menu'
 
 export const App: React.FC = () => (
   <>
@@ -11,7 +12,7 @@ export const App: React.FC = () => (
     <DashboardContextProvider>
       <MarcasContextProvider>
         <VeiculosContextProvider>
-          <h1>Hello world!</h1>
+          <Menu />
         </VeiculosContextProvider>
       </MarcasContextProvider>
     </DashboardContextProvider>
