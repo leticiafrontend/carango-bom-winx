@@ -9,7 +9,7 @@ import {
   Tooltip,
 } from 'recharts'
 
-import { Card, CardContent } from '@material-ui/core'
+import { Card, CardContent, Typography } from '@material-ui/core'
 import { cardStyle } from './styles'
 
 import { useDash } from '../../hooks/useDash'
@@ -48,6 +48,9 @@ export const GraphicDashboard = () => {
   return (
     <Card className={classes.root}>
       <CardContent>
+        <Typography className={classes.title} variant="h5">
+          Montante Das Marcas
+        </Typography>
         <BarChart
           width={700}
           height={300}

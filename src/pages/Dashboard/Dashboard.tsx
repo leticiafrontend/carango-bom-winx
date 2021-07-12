@@ -6,6 +6,7 @@ import { CardDashboard } from '../../components/CardDashboard/CardDashboard'
 
 import { useDash } from '../../hooks/useDash'
 import { GraphicDashboard } from '../../components/GraphicDashboard/GraphicDashboard'
+import { PierGraphicDashboard } from '../../components/PieGraphicDashboard/PierGraphicDashboard'
 
 export const Dashboard: React.FC = () => {
   const dash = useDash()
@@ -18,7 +19,7 @@ export const Dashboard: React.FC = () => {
             <GraphicDashboard />
           </Grid>
           <Grid item xs={4}>
-            <h1>teste</h1>
+            <PierGraphicDashboard />
           </Grid>
         </Grid>
         <Grid container spacing={2}>
