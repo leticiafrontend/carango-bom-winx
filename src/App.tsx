@@ -12,7 +12,7 @@ export const App: React.FC = () => (
     <DashboardContextProvider>
       <MarcasContextProvider>
         <VeiculosContextProvider>
-          <Menu />
+          <Menu>Teste</Menu>
         </VeiculosContextProvider>
       </MarcasContextProvider>
     </DashboardContextProvider>

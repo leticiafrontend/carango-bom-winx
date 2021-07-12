@@ -1,6 +1,4 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from 'react'
+import React, { useState, ReactNode } from 'react'
 import clsx from 'clsx'
 import { useTheme } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
@@ -23,13 +21,17 @@ import LabelIcon from '@material-ui/icons/Label'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
+import { Container } from '@material-ui/core'
 import { MenuCustomLink } from './styles'
 
-// eslint-disable-next-line react/prop-types
-export const Menu: React.FC = ({ children }) => {
+interface MenuProps {
+  children: ReactNode | any
+}
+
+export const Menu = ({ children }: MenuProps) => {
   const classes = MenuCustomLink()
   const theme = useTheme()
-  const [open, setOpen] = React.useState<boolean>(false)
+  const [open, setOpen] = useState<boolean>(false)
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -37,6 +39,28 @@ export const Menu: React.FC = ({ children }) => {
 
   const handleDrawerClose = () => {
     setOpen(false)
+  }
+
+  const icons: any = (index: number) => {
+    switch (index) {
+      case 0:
+        return <HomeIcon />
+
+      case 1:
+        return <DriveEtaIcon />
+
+      case 2:
+        return <LabelIcon />
+
+      case 3:
+        return <AccountBoxIcon />
+
+      case 4:
+        return <DashboardIcon />
+
+      default:
+        return <ExitToAppIcon />
+    }
   }
 
   return (
@@ -98,29 +122,19 @@ export const Menu: React.FC = ({ children }) => {
             'sair',
           ].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>
-                {/* eslint-disable-next-line no-nested-ternary */}
-                {index === 0 ? (
-                  <HomeIcon />
-                ) : index === 1 ? (
-                  <DriveEtaIcon />
-                ) : index === 2 ? (
-                  <LabelIcon />
-                ) : index === 3 ? (
-                  <AccountBoxIcon />
-                ) : index === 4 ? (
-                  <DashboardIcon />
-                ) : (
-                  <ExitToAppIcon />
-                )}
-              </ListItemIcon>
+              <ListItemIcon>{icons(index)}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <Divider />
       </Drawer>
-      {children}
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="lg" className={classes.container}>
+          {children}
+        </Container>
+      </main>
     </div>
   )
 }
