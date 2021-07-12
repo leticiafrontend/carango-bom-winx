@@ -7,6 +7,9 @@ import { VeiculosCadastro } from '../pages/VeiculosCadastro/VeiculosCadastro'
 import { Marcas } from '../pages/Marcas/Marcas'
 import { MarcasCadastro } from '../pages/MarcasCadastro/MarcasCadastro'
 import { Menu } from '../components/Menu/Menu'
+import { DashboardContextProvider } from '../context/DashboardContext'
+import { VeiculosContextProvider } from '../context/VeiculosContext'
+import { MarcasContextProvider } from '../context/MarcasContext'
 
 interface RotasProps {
   path: string
@@ -15,6 +18,11 @@ interface RotasProps {
 }
 
 const listRoutes: RotasProps[] = [
+  {
+    path: '/',
+    exact: true,
+    component: Dashboard,
+  },
   {
     path: '/dashboard',
     exact: true,
@@ -43,16 +51,22 @@ const listRoutes: RotasProps[] = [
 export const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Menu>
-        {listRoutes.map((route) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            exact={route.exact}
-            component={route.component}
-          />
-        ))}
-      </Menu>
+      <DashboardContextProvider>
+        <VeiculosContextProvider>
+          <MarcasContextProvider>
+            <Menu>
+              {listRoutes.map((route) => (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  exact={route.exact}
+                  component={route.component}
+                />
+              ))}
+            </Menu>
+          </MarcasContextProvider>
+        </VeiculosContextProvider>
+      </DashboardContextProvider>
     </Switch>
   </BrowserRouter>
 )
