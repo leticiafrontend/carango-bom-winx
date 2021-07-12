@@ -25,10 +25,11 @@ import DashboardIcon from '@material-ui/icons/Dashboard'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import { MenuCustomLink } from './styles'
 
-export default function MiniDrawer() {
+// eslint-disable-next-line react/prop-types
+export const Menu: React.FC = ({ children }) => {
   const classes = MenuCustomLink()
   const theme = useTheme()
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState<boolean>(false)
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -119,6 +120,7 @@ export default function MiniDrawer() {
         </List>
         <Divider />
       </Drawer>
+      {children}
     </div>
   )
 }
