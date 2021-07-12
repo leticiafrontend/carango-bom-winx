@@ -20,16 +20,18 @@ export const CardDashboard = ({
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography variant="h5" color="secondary">
+        <Typography className={classes.title} variant="h5" color="secondary">
           {nomeDaMarca}
         </Typography>
-        <Typography variant="h6">
+        <Typography variant="h6" className={classes.subtitle}>
           {montante.toLocaleString('pt-br', {
             style: 'currency',
             currency: 'BRL',
           })}
         </Typography>
-        <Typography variant="h6">Carros: {quantidadeDeVeiculos}</Typography>
+        <Typography variant="h6" className={classes.subtitle}>
+          Carros: {quantidadeDeVeiculos}
+        </Typography>
       </CardContent>
     </Card>
   )

@@ -5,5 +5,12 @@ export const cardStyle = makeStyles(() =>
     root: {
       minWidth: 275,
     },
+    title: {
+      paddingBottom: 20,
+      fontWeight: 500,
+    },
+    subtitle: {
+      fontWeight: 400,
+    },
   }),
 )
