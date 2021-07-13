@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
+import { SnackbarProvider } from 'notistack'
 import { Dashboard } from '../pages/Dashboard/Dashboard'
 import { Veiculos } from '../pages/Veiculos/Veiculos'
 import { VeiculosCadastro } from '../pages/VeiculosCadastro/VeiculosCadastro'
@@ -63,22 +64,24 @@ const listRoutes: RotasProps[] = [
 export const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <DashboardContextProvider>
-        <VeiculosContextProvider>
-          <MarcasContextProvider>
-            <Menu>
-              {listRoutes.map((route) => (
-                <Route
-                  key={route.path}
-                  path={route.path}
-                  exact={route.exact}
-                  component={route.component}
-                />
-              ))}
-            </Menu>
-          </MarcasContextProvider>
-        </VeiculosContextProvider>
-      </DashboardContextProvider>
+      <SnackbarProvider>
+        <DashboardContextProvider>
+          <VeiculosContextProvider>
+            <MarcasContextProvider>
+              <Menu>
+                {listRoutes.map((route) => (
+                  <Route
+                    key={route.path}
+                    path={route.path}
+                    exact={route.exact}
+                    component={route.component}
+                  />
+                ))}
+              </Menu>
+            </MarcasContextProvider>
+          </VeiculosContextProvider>
+        </DashboardContextProvider>
+      </SnackbarProvider>
     </Switch>
   </BrowserRouter>
 )
