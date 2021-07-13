@@ -12,6 +12,7 @@ import {
   Table,
 } from '@material-ui/core'
 
+import { Link } from 'react-router-dom'
 import { useStyles } from './styles'
 
 import { useMarcas } from '../../hooks/useMarcas'
@@ -48,9 +49,11 @@ export const Marcas: React.FC = () => {
         <Typography className={classes.title} variant="h5" color="secondary">
           Lista de Marcas
         </Typography>
-        <Button size="small" variant="contained" color="primary">
-          Incluir
-        </Button>
+        <Link to="/marcas/cadastro">
+          <Button size="small" variant="contained" color="primary">
+            Incluir
+          </Button>
+        </Link>
       </div>
       <div>
         <TableContainer component={Paper}>
