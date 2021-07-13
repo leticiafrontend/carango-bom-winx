@@ -47,12 +47,12 @@ export const Marcas: React.FC = () => {
       <Typography className={classes.title} variant="h5" color="secondary">
         Lista de Marcas
       </Typography>
-      {marcas?.marcas?.map((marca: PropsMarcas) => (
-        <div>
-          <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="customized table">
-              <TableHead>
-                <TableBody>
+      <div>
+        <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="customized table">
+            <TableHead>
+              <TableBody>
+                {marcas?.marcas?.map((marca: PropsMarcas) => (
                   <TableRow>
                     <TableCell
                       style={{ width: 1200 }}
@@ -71,12 +71,12 @@ export const Marcas: React.FC = () => {
                       </Button>
                     </TableCell>
                   </TableRow>
-                </TableBody>
-              </TableHead>
-            </Table>
-          </TableContainer>
-        </div>
-      ))}
+                ))}
+              </TableBody>
+            </TableHead>
+          </Table>
+        </TableContainer>
+      </div>
     </div>
   )
 }
