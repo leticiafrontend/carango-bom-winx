@@ -1,6 +1,6 @@
 import { api } from '../services/api'
 
-export const getVeiculos = () => api.get('/veiculos')
+export const getVeiculos = () => api.get('/veiculos?_expand=marca')
 
 export const postVeiculos = () => api.post('/veiculos')
 

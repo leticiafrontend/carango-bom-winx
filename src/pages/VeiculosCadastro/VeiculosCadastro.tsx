@@ -11,7 +11,7 @@ import {
 import { veiculosCadastroStyle } from './styles'
 import { useMarcas } from '../../hooks/useMarcas'
 
-interface PropsMarcas {
+interface PropsMarca {
   id: number
   nome: string
 }
