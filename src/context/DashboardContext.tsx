@@ -6,6 +6,7 @@ import React, {
   useEffect,
   useState,
 } from 'react'
+import { enqueueSnackbar } from 'notistack'
 import { getDashboard } from '../api/dashboard'
 
 interface Dash {
@@ -30,7 +31,12 @@ export const DashboardContextProvider = ({ children }: DashContextProvider) => {
 
   useEffect(() => {
     getDashboard()
-      .then((response) => setDash(response.data))
+      .then((response) => {
+        setDash(response.data)
+        enqueueSnackbar('Dashboard carregada com sucesso', {
+          variant: 'success',
+        })
+      })
       .catch((err) => console.log(err))
   }, [])
 
