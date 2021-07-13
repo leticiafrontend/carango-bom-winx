@@ -11,6 +11,11 @@ import {
 import { veiculosCadastroStyle } from './styles'
 import { useMarcas } from '../../hooks/useMarcas'
 
+interface PropsMarcas {
+  id: number
+  nome: string
+}
+
 export const VeiculosCadastro = () => {
   const classes = veiculosCadastroStyle()
   const marcas = useMarcas()
@@ -28,7 +33,7 @@ export const VeiculosCadastro = () => {
               id="demo-simple-select-outlined"
               label="Marca"
             >
-              {marcas?.marcas?.map((marca: any) => (
+              {marcas?.marcas?.map((marca: PropsMarcas) => (
                 <MenuItem value={marca.id}>{marca.nome}</MenuItem>
               ))}
             </Select>
