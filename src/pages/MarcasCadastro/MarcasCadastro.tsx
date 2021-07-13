@@ -8,10 +8,11 @@ export const MarcasCadastro = () => {
   const [nameMarca, setNameMarca] = useState('')
   const [erros, setErros] = useState<any>({ marcas: { valid: true, text: '' } })
 
-  const submitForm = (obj: any) => {
+  const submitForm = (e: any) => {
+    e.preventDefault()
     postMarcas({
       id: Math.floor(Math.random() * 1000),
-      nome: obj.nameMarca,
+      nome: nameMarca,
     })
   }
 
@@ -35,13 +36,7 @@ export const MarcasCadastro = () => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <form
-          className={classes.root}
-          onSubmit={(e) => {
-            e.preventDefault()
-            submitForm({ nameMarca })
-          }}
-        >
+        <form className={classes.root}>
           <TextField
             label="Marca"
             variant="outlined"
@@ -57,7 +52,10 @@ export const MarcasCadastro = () => {
             size="large"
             variant="contained"
             color="primary"
-            disabled={!erros.marcas.valid}
+            onClick={(e) => {
+              submitForm(e)
+            }}
+            disabled={!erros.marcas.valid || nameMarca.length < 3}
           >
             Cadastrar
           </Button>
