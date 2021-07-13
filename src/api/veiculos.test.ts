@@ -19,7 +19,7 @@ describe('Veiculos', () => {
   })
   it('Put Veiculos in when postVeiculos is called', () => {
     const mock = new MockAdapter(axios)
-    mock.onGet(postVeiculos()).reply(200)
+    mock.onPost(postVeiculos()).reply(200)
   })
   it('Return id when getVeiculoId is called', () => {
     const mock = new MockAdapter(axios)
@@ -27,10 +27,10 @@ describe('Veiculos', () => {
   })
   it('Put id in Veiculos when putVeiculoId is called', () => {
     const mock = new MockAdapter(axios)
-    mock.onGet(putVeiculoId()).reply(200)
+    mock.onPut(putVeiculoId()).reply(200)
   })
   it('Delete user when deleteVeiculo is called', () => {
     const mock = new MockAdapter(axios)
-    mock.onGet(deleteVeiculo()).reply(200)
+    mock.onDelete(deleteVeiculo()).reply(200)
   })
 })

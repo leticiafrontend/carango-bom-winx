@@ -18,7 +18,7 @@ describe('Marcas', () => {
   })
   it('Return new marcas when postMarcas is called', () => {
     const mock = new MockAdapter(axios)
-    mock.onGet(postMarcas()).reply(200)
+    mock.onPost(postMarcas()).reply(200)
   })
   it('Return ID marcas when getMarcaId is called', () => {
     const mock = new MockAdapter(axios)
@@ -26,10 +26,10 @@ describe('Marcas', () => {
   })
   it('Return new ID marcas when putMarcaId is called', () => {
     const mock = new MockAdapter(axios)
-    mock.onGet(putMarcaId()).reply(200)
+    mock.onPut(putMarcaId()).reply(200)
   })
   it('Delete marca when deleteMarca is called', () => {
     const mock = new MockAdapter(axios)
-    mock.onGet(deleteMarca()).reply(200)
+    mock.onDelete(deleteMarca()).reply(200)
   })
 })
