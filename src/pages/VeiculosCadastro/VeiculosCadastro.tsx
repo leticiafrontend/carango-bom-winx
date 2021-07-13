@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Grid,
   TextField,
@@ -16,32 +16,110 @@ interface PropsMarcas {
   nome: string
 }
 
+// interface PropsData {
+//   marca: string
+//   modelo: string
+//   ano: number
+//   valor: number
+// }
+
 export const VeiculosCadastro = () => {
   const classes = veiculosCadastroStyle()
   const marcas = useMarcas()
+
+  const [modelo, setModelo] = useState<string>('')
+  const [ano, setAno] = useState<string>('')
+  const [valor, setValor] = useState<string>('')
+
+  const [erros, setErros] = useState<any>({
+    modelo: { valid: true, text: '' },
+    ano: { valid: true, text: '' },
+    valor: { valid: true, text: '' },
+  })
+
+  const valid = (option: string, value: string) => {
+    switch (option) {
+      case 'modelo':
+        if (value.length < 3) {
+          return {
+            valid: false,
+            text: 'O modelo deve conter no mínimo 3 caracteres',
+          }
+        }
+        return { valid: true, text: '' }
+      case 'ano':
+        if (value.length !== 4) {
+          return { valid: false, text: 'O ano deve conter 4 caracteres' }
+        }
+        return { valid: true, text: '' }
+      case 'valor':
+        if (value.length < 4) {
+          return {
+            valid: false,
+            text: 'O valor deve conter no minimo 4 caracteres',
+          }
+        }
+        return { valid: true, text: '' }
+      default:
+        return console.warn('erro de validação')
+    }
+  }
 
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <form className={classes.root}>
           <FormControl variant="outlined">
-            <InputLabel id="demo-simple-select-outlined-label">
-              Marca
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-outlined-label"
-              id="demo-simple-select-outlined"
-              label="Marca"
-            >
+            <InputLabel>Marca</InputLabel>
+            <Select label="Marca" defaultValue={7}>
               {marcas?.marcas?.map((marca: PropsMarcas) => (
                 <MenuItem value={marca.id}>{marca.nome}</MenuItem>
               ))}
             </Select>
           </FormControl>
-          <TextField label="Modelo" variant="outlined" />
-          <TextField label="Ano" variant="outlined" />
-          <TextField label="Valor" variant="outlined" />
-          <Button size="large" variant="contained" color="primary">
+          <TextField
+            label="Modelo"
+            variant="outlined"
+            error={!erros.modelo.valid}
+            helperText={erros.modelo.text}
+            onChange={(e) => setModelo(e.target.value)}
+            onBlur={() => {
+              const validModelo = valid('modelo', modelo)
+              setErros((prev: any) => ({ ...prev, modelo: validModelo }))
+            }}
+          />
+
+          <TextField
+            label="Ano"
+            variant="outlined"
+            error={!erros.ano.valid}
+            helperText={erros.ano.text}
+            onChange={(e) => setAno(e.target.value)}
+            onBlur={() => {
+              const validAno = valid('ano', ano)
+              setErros((prev: any) => ({ ...prev, ano: validAno }))
+            }}
+          />
+
+          <TextField
+            label="Valor"
+            variant="outlined"
+            error={!erros.valor.valid}
+            helperText={erros.valor.text}
+            onChange={(e) => setValor(e.target.value)}
+            onBlur={() => {
+              const validValor = valid('valor', valor)
+              setErros((prev: any) => ({ ...prev, valor: validValor }))
+            }}
+          />
+          <Button
+            size="large"
+            variant="contained"
+            color="primary"
+            disabled={
+              !erros.modelo.valid || !erros.ano.valid || !erros.valor.valid
+            }
+          >
             Cadastrar
           </Button>
           <Button size="large" variant="contained" color="secondary">
