@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import { Grid, TextField, Button } from '@material-ui/core'
 import { marcasCadastroStyle } from './styles'
+import { postMarcas } from '../../api/marcas'
 
 export const MarcasCadastro = () => {
   const classes = marcasCadastroStyle()
   const [nameMarca, setNameMarca] = useState('')
   const [erros, setErros] = useState<any>({ marcas: { valid: true, text: '' } })
-  const [data, setData] = useState({})
 
   const submitForm = (obj: any) => {
-    setData(obj)
-    console.log(data)
+    postMarcas({
+      id: Math.floor(Math.random() * 1000),
+      nome: obj.nameMarca,
+    })
   }
 
   const validMarca = (marca: any) => {
