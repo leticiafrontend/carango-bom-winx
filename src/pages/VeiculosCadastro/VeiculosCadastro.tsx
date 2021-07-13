@@ -10,18 +10,12 @@ import {
 } from '@material-ui/core'
 import { veiculosCadastroStyle } from './styles'
 import { useMarcas } from '../../hooks/useMarcas'
+import { postVeiculos } from '../../api/veiculos'
 
 interface PropsMarcas {
   id: number
   nome: string
 }
-
-// interface PropsData {
-//   marca: string
-//   modelo: string
-//   ano: number
-//   valor: number
-// }
 
 export const VeiculosCadastro = () => {
   const classes = veiculosCadastroStyle()
@@ -30,12 +24,24 @@ export const VeiculosCadastro = () => {
   const [modelo, setModelo] = useState<string>('')
   const [ano, setAno] = useState<string>('')
   const [valor, setValor] = useState<string>('')
+  const [marcaId, setMarcaId] = useState<number>(7)
 
   const [erros, setErros] = useState<any>({
     modelo: { valid: true, text: '' },
     ano: { valid: true, text: '' },
     valor: { valid: true, text: '' },
   })
+
+  const submitForm = (e: any) => {
+    e.preventDefault()
+    postVeiculos({
+      ano,
+      id: Math.floor(Math.random() * 1000),
+      marcaId,
+      modelo,
+      valor,
+    })
+  }
 
   const valid = (option: string, value: string) => {
     switch (option) {
@@ -71,7 +77,11 @@ export const VeiculosCadastro = () => {
         <form className={classes.root}>
           <FormControl variant="outlined">
             <InputLabel>Marca</InputLabel>
-            <Select label="Marca" defaultValue={7}>
+            <Select
+              label="Marca"
+              value={marcaId}
+              onChange={(e: any) => setMarcaId(e.target.value)}
+            >
               {marcas?.marcas?.map((marca: PropsMarcas) => (
                 <MenuItem value={marca.id}>{marca.nome}</MenuItem>
               ))}
@@ -115,9 +125,16 @@ export const VeiculosCadastro = () => {
           <Button
             size="large"
             variant="contained"
+            type="submit"
             color="primary"
+            onClick={(e) => submitForm(e)}
             disabled={
-              !erros.modelo.valid || !erros.ano.valid || !erros.valor.valid
+              !erros.modelo.valid ||
+              !erros.ano.valid ||
+              !erros.valor.valid ||
+              modelo.length < 3 ||
+              valor.length < 4 ||
+              ano.length < 4
             }
           >
             Cadastrar

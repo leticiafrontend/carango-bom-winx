@@ -4,7 +4,8 @@ const headers = { 'Content-Type': 'application/json' }
 
 export const getVeiculos = () => api.get('/veiculos?_expand=marca')
 
-export const postVeiculos = () => api.post('/veiculos', headers)
+export const postVeiculos = (data: any) =>
+  api.post('/veiculos', { data, headers })
 
 export const getVeiculoId = (id: number) => api.get(`/veiculos/${id}`)
 
