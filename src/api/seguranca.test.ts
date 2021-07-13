@@ -16,7 +16,7 @@ import {
 describe('Seguranca', () => {
   it('Return Autenticacao when postAutenticacaois called', () => {
     const mock = new MockAdapter(axios)
-    mock.onGet(postAutenticacao()).reply(200)
+    mock.onPost(postAutenticacao()).reply(200)
   })
   it('Return user when getUsuarios is called', () => {
     const mock = new MockAdapter(axios)
@@ -24,7 +24,7 @@ describe('Seguranca', () => {
   })
   it('Put user in Usuario when postUsuario is called', () => {
     const mock = new MockAdapter(axios)
-    mock.onGet(postUsuario()).reply(200)
+    mock.onPost(postUsuario()).reply(200)
   })
   it('Take user when getUsuarioName is called', () => {
     const mock = new MockAdapter(axios)
@@ -32,10 +32,10 @@ describe('Seguranca', () => {
   })
   it('Delete user when deleteUsuario is called', () => {
     const mock = new MockAdapter(axios)
-    mock.onGet(deleteUsuario()).reply(200)
+    mock.onDelete(deleteUsuario()).reply(200)
   })
   it('Change pass when putAlterarSenha is called', () => {
     const mock = new MockAdapter(axios)
-    mock.onGet(putAlterarSenha()).reply(200)
+    mock.onPut(putAlterarSenha()).reply(200)
   })
 })
