@@ -10,6 +10,7 @@ import { Menu } from '../components/Menu/Menu'
 import { DashboardContextProvider } from '../context/DashboardContext'
 import { VeiculosContextProvider } from '../context/VeiculosContext'
 import { MarcasContextProvider } from '../context/MarcasContext'
+import { Usuarios } from '../pages/Usuarios/Usuarios'
 
 interface RotasProps {
   path: string
@@ -45,6 +46,11 @@ const listRoutes: RotasProps[] = [
   {
     path: '/veiculos/cadastro',
     component: VeiculosCadastro,
+  },
+  {
+    path: '/usuarios',
+    exact: true,
+    component: Usuarios,
   },
 ]
 
