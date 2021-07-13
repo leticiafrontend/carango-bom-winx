@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core'
 import { useVeiculos } from '../../hooks/useVeiculos'
 import { veiculosStyle } from './styles'
+import { deleteVeiculo } from '../../api/veiculos'
 
 // interface PropsVeiculos {
 //   id: number
@@ -24,6 +25,22 @@ import { veiculosStyle } from './styles'
 export const Veiculos = () => {
   const veiculos = useVeiculos()
   const classe = veiculosStyle()
+
+  const deleteVeiculos = (id: number) => {
+    let index: number | undefined
+    deleteVeiculo(id).then((response) => {
+      console.log(response)
+
+      index = veiculos?.veiculos?.findIndex((veiculo) => veiculo.id === id)
+      veiculos?.setVeiculos(undefined)
+
+      setTimeout(() => {
+        const newArray: any = veiculos?.veiculos
+        if (index || index === 0) newArray?.splice(index, 1)
+        veiculos?.setVeiculos(newArray)
+      }, 1)
+    })
+  }
 
   return (
     <>
@@ -62,7 +79,11 @@ export const Veiculos = () => {
                   })}
                 </TableCell>
                 <TableCell align="right">
-                  <Button size="small" color="secondary">
+                  <Button
+                    size="small"
+                    color="secondary"
+                    onClick={() => deleteVeiculos(veiculo.id)}
+                  >
                     Excluir
                   </Button>
                 </TableCell>
