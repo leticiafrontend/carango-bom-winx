@@ -29,7 +29,7 @@ export const Veiculos = () => {
     <>
       <div className={classe.root}>
         <Typography className={classe.title} variant="h5" color="secondary">
-          Lista de veículos
+          Lista de Veículos
         </Typography>
         <Button size="small" variant="contained" color="primary">
           Incluir

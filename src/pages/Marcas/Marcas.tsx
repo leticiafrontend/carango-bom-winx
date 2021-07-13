@@ -44,9 +44,14 @@ export const Marcas: React.FC = () => {
 
   return (
     <div>
-      <Typography className={classes.title} variant="h5" color="secondary">
-        Lista de Marcas
-      </Typography>
+      <div className={classes.root}>
+        <Typography className={classes.title} variant="h5" color="secondary">
+          Lista de Marcas
+        </Typography>
+        <Button size="small" variant="contained" color="primary">
+          Incluir
+        </Button>
+      </div>
       <div>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">
