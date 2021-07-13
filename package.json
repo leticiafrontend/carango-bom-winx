@@ -78,10 +78,15 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.3.2",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-test": "^0.8.0",
     "react-test-renderer": "^16.14.0",
 =======
 >>>>>>> Testes - API
+=======
+    "react-test": "^0.8.0",
+    "react-test-renderer": "^16.14.0",
+>>>>>>> Test: Services
     "supertest": "^6.1.3"
   }
 }
