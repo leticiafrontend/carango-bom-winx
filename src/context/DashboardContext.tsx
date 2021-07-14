@@ -24,7 +24,7 @@ interface DashContextProvider {
   children: ReactNode
 }
 
-export const DashboardContext = createContext({} as DashContext | undefined)
+export const DashboardContext = createContext({} as DashContext)
 
 export const DashboardContextProvider = ({ children }: DashContextProvider) => {
   const [dash, setDash] = useState<[Dash]>()
