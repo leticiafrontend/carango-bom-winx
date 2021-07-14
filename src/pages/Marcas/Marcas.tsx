@@ -26,7 +26,7 @@ interface PropsMarcas {
 }
 
 export const Marcas: React.FC = () => {
-  const { marcas, setMarcas } = useMarcas()
+  const { marcas, setMarcas, allMarcas } = useMarcas()
   const classes = useStyles()
 
   const { page, setPage } = useMarcas()
@@ -97,7 +97,7 @@ export const Marcas: React.FC = () => {
           page={page}
           onChange={handleChangePage}
           color="primary"
-          count={4}
+          count={Math.ceil(allMarcas?.length / 10)}
         />
       </div>
     </div>
