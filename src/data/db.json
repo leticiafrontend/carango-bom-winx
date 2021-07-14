@@ -5,10 +5,6 @@
       "nome": "Audi"
     },
     {
-      "id": 17,
-      "nome": "Chrysler"
-    },
-    {
       "id": 18,
       "nome": "Citroën"
     },
@@ -117,18 +113,28 @@
       "nome": "VW - VolksWagen"
     },
     {
-      "data": {
-        "id": 78,
-        "nome": "Ferrari"
-      },
-      "headers": {
-        "Content-Type": "application/json"
-      },
-      "id": 89
-    },
-    {
       "id": 679,
       "nome": "Lexus"
+    },
+    {
+      "id": 476,
+      "nome": "Teste"
+    },
+    {
+      "id": 762,
+      "nome": "Teste"
+    },
+    {
+      "id": 746,
+      "nome": "Teste"
+    },
+    {
+      "id": 225,
+      "nome": "asasd"
+    },
+    {
+      "id": 159,
+      "nome": "Teste"
     }
   ],
   "veiculos": [
@@ -145,20 +151,6 @@
       "ano": 2010,
       "valor": 25104,
       "marcaId": 33
-    },
-    {
-      "id": 4,
-      "modelo": "Celta 1.0/Super/N.Piq.1.0 MPFi VHC 8V 3p",
-      "ano": 2005,
-      "valor": 13390,
-      "marcaId": 33
-    },
-    {
-      "id": 5,
-      "modelo": "Fusca",
-      "ano": 1985,
-      "valor": 11147,
-      "marcaId": 88
     },
     {
       "id": 6,
@@ -180,6 +172,13 @@
       "ano": 2021,
       "valor": 71415,
       "marcaId": 27
+    },
+    {
+      "ano": "2010",
+      "id": 179,
+      "marcaId": 7,
+      "modelo": "a01",
+      "valor": "100000"
     }
   ],
   "dashboard": [

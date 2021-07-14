@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Grid, TextField, Button } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 import { marcasCadastroStyle } from './styles'
 import { postMarcas } from '../../api/marcas'
 
@@ -7,6 +8,7 @@ export const MarcasCadastro = () => {
   const classes = marcasCadastroStyle()
   const [nameMarca, setNameMarca] = useState('')
   const [erros, setErros] = useState<any>({ marcas: { valid: true, text: '' } })
+  const history = useHistory()
 
   const submitForm = (e: any) => {
     e.preventDefault()
@@ -14,6 +16,7 @@ export const MarcasCadastro = () => {
       id: Math.floor(Math.random() * 1000),
       nome: nameMarca,
     })
+    history.push('/marcas')
   }
 
   const validMarca = (marca: any) => {

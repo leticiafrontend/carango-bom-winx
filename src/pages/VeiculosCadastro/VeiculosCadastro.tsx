@@ -8,6 +8,7 @@ import {
   Select,
   MenuItem,
 } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 import { veiculosCadastroStyle } from './styles'
 import { useMarcas } from '../../hooks/useMarcas'
 import { postVeiculos } from '../../api/veiculos'
@@ -25,6 +26,7 @@ export const VeiculosCadastro = () => {
   const [ano, setAno] = useState<string>('')
   const [valor, setValor] = useState<string>('')
   const [marcaId, setMarcaId] = useState<number>(7)
+  const history = useHistory()
 
   const [erros, setErros] = useState<any>({
     modelo: { valid: true, text: '' },
@@ -41,6 +43,7 @@ export const VeiculosCadastro = () => {
       modelo,
       valor,
     })
+    history.push('/veiculos')
   }
 
   const valid = (option: string, value: string) => {
