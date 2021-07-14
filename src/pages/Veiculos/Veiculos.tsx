@@ -68,7 +68,12 @@ export const Veiculos = () => {
           Lista de Veículos
         </Typography>
         <Link to="/veiculos/cadastro">
-          <Button size="small" variant="contained" color="primary">
+          <Button
+            className={classe.buttom}
+            size="small"
+            variant="contained"
+            color="primary"
+          >
             Incluir Veículo
           </Button>
         </Link>

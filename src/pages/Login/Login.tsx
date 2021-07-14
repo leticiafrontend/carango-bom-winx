@@ -16,7 +16,6 @@ export const Login: React.FC = () => {
 
   const submitForm = (e: any) => {
     e.preventDefault()
-    console.log('enviar')
   }
 
   const valid = (option: string, value: string) => {

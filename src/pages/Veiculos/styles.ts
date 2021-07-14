@@ -12,6 +12,14 @@ export const veiculosStyle = makeStyles(() =>
     },
     title: {
       fontWeight: 500,
+      '@media (max-width: 420px)': {
+        fontSize: '15px',
+      },
+    },
+    buttom: {
+      '@media (max-width: 420px)': {
+        fontSize: '10px !important',
+      },
     },
     filter: {
       paddingRight: '16px',

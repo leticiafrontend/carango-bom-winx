@@ -35,11 +35,10 @@ export const DashboardContextProvider = ({ children }: DashContextProvider) => {
       .then((response) => {
         setDash(response.data)
       })
-      .catch((err) => {
+      .catch(() => {
         enqueueSnackbar('Não foi possivel carregar a Dashboard', {
           variant: 'error',
         })
-        console.log(err)
       })
   }, [])
 

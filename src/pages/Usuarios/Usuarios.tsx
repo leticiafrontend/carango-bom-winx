@@ -20,7 +20,12 @@ export const Usuarios = () => {
         <Typography className={classe.title} variant="h5" color="secondary">
           Lista de Usuarios
         </Typography>
-        <Button size="small" variant="contained" color="primary">
+        <Button
+          className={classe.buttom}
+          size="small"
+          variant="contained"
+          color="primary"
+        >
           Incluir
         </Button>
       </div>

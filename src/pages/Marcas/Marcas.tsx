@@ -64,11 +64,16 @@ export const Marcas: React.FC = () => {
   return (
     <div>
       <div className={classes.root}>
-        <Typography className={classes.title} variant="h5" color="secondary">
+        <Typography className={classes.title} variant="h6" color="secondary">
           Lista de Marcas
         </Typography>
         <Link to="/marcas/cadastro">
-          <Button size="small" variant="contained" color="primary">
+          <Button
+            className={classes.buttom}
+            size="small"
+            variant="contained"
+            color="primary"
+          >
             Incluir Marca
           </Button>
         </Link>

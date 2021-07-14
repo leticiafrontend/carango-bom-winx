@@ -14,5 +14,13 @@ export const usuariosStyles = makeStyles({
   },
   title: {
     fontWeight: 500,
+    '@media (max-width: 420px)': {
+      fontSize: '15px',
+    },
+  },
+  buttom: {
+    '@media (max-width: 420px)': {
+      fontSize: '10px !important',
+    },
   },
 })

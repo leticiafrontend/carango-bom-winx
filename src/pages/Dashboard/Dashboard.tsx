@@ -8,17 +8,20 @@ import { useDash } from '../../hooks/useDash'
 import { GraphicDashboard } from '../../components/GraphicDashboard/GraphicDashboard'
 import { PierGraphicDashboard } from '../../components/PieGraphicDashboard/PierGraphicDashboard'
 
+import { dashboard } from './styles'
+
 export const Dashboard: React.FC = () => {
   const { dash } = useDash()
+  const classe = dashboard()
 
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <Grid container spacing={2}>
-          <Grid item xs={8}>
+        <Grid className={classe.root} container spacing={2}>
+          <Grid item sm={12} xs={8}>
             <GraphicDashboard />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item sm={12} xs={4}>
             <PierGraphicDashboard />
           </Grid>
         </Grid>

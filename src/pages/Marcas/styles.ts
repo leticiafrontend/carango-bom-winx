@@ -14,10 +14,18 @@ export const useStyles = makeStyles({
     marginTop: '10px',
     justifyContent: 'center',
   },
-  table: {
-    minWidth: 100,
-  },
   title: {
     fontWeight: 500,
+    '@media (max-width: 420px)': {
+      fontSize: '15px',
+    },
+  },
+  buttom: {
+    '@media (max-width: 420px)': {
+      fontSize: '10px !important',
+    },
+  },
+  table: {
+    minWidth: 100,
   },
 })

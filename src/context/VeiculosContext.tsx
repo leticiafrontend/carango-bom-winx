@@ -40,11 +40,10 @@ export const VeiculosContextProvider = ({
       .then((response) => {
         setVeiculos(response.data)
       })
-      .catch((err) => {
+      .catch(() => {
         enqueueSnackbar('Não foi possivel carregar os veiculos', {
           variant: 'error',
         })
-        console.log(err)
       })
   }, [])
 
