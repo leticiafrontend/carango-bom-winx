@@ -9,7 +9,7 @@ import { GraphicDashboard } from '../../components/GraphicDashboard/GraphicDashb
 import { PierGraphicDashboard } from '../../components/PieGraphicDashboard/PierGraphicDashboard'
 
 export const Dashboard: React.FC = () => {
-  const dash = useDash()
+  const { dash } = useDash()
 
   return (
     <Grid container spacing={2}>
@@ -23,7 +23,7 @@ export const Dashboard: React.FC = () => {
           </Grid>
         </Grid>
         <Grid container spacing={2}>
-          {dash?.dash?.map((card) => (
+          {dash?.map((card) => (
             <Grid key={card.nomeDaMarca} item>
               <CardDashboard
                 montante={card.montante}

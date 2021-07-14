@@ -26,9 +26,7 @@ interface VeiculosContextProviderProps {
   children: ReactNode
 }
 
-export const VeiculosContext = createContext(
-  {} as VeiculosContextProps | undefined,
-)
+export const VeiculosContext = createContext({} as VeiculosContextProps)
 
 export const VeiculosContextProvider = ({
   children,

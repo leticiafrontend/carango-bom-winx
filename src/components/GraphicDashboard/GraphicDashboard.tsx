@@ -16,7 +16,7 @@ import { useDash } from '../../hooks/useDash'
 
 export const GraphicDashboard = () => {
   const [data, setData] = useState<any>([])
-  const dash = useDash()
+  const { dash } = useDash()
   const classes = cardStyle()
 
   const CustomTooltip = ({ active, payload, label }: any) => {
@@ -37,13 +37,13 @@ export const GraphicDashboard = () => {
   }
 
   useEffect(() => {
-    dash?.dash?.map((item) =>
+    dash?.map((item) =>
       setData((prev: any) => [
         ...prev,
         { montante: item.montante, name: item.nomeDaMarca },
       ]),
     )
-  }, [dash?.dash])
+  }, [dash])
 
   return (
     <Card className={classes.root}>

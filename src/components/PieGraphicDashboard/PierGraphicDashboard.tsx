@@ -8,7 +8,7 @@ import { useDash } from '../../hooks/useDash'
 
 export const PierGraphicDashboard = () => {
   const [data, setData] = useState<any>([])
-  const dash = useDash()
+  const { dash } = useDash()
   const classes = cardStyle()
 
   const radian = Math.PI / 180
@@ -38,7 +38,7 @@ export const PierGraphicDashboard = () => {
   }
 
   useEffect(() => {
-    dash?.dash?.map((item) =>
+    dash?.map((item) =>
       setData((prev: any) => [
         ...prev,
         {
@@ -47,7 +47,7 @@ export const PierGraphicDashboard = () => {
         },
       ]),
     )
-  }, [dash?.dash])
+  }, [dash])
 
   return (
     <Card className={classes.root}>
