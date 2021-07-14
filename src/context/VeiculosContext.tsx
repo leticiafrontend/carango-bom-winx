@@ -15,6 +15,7 @@ interface Veiculo {
   ano: number
   valor: number
   marcaId: number
+  marca: any
 }
 
 interface VeiculosContextProps {

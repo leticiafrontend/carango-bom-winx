@@ -15,3 +15,6 @@ export const putMarcaId = (data: any, id: number) =>
   api.put(`/marcas/${id}`, data, { headers })
 
 export const deleteMarca = (id: number) => api.delete(`/marcas/${id}`)
+
+export const ordenacaoMarca = (value: string, order: string, page: number) =>
+  api.get(`/marcas?_sort=nome&_order=${order}&_limit=10&_page=${page}`)

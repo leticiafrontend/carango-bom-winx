@@ -10,7 +10,9 @@ import {
   TableContainer,
   TableBody,
   Table,
+  IconButton,
 } from '@material-ui/core'
+import SwapVertOutlinedIcon from '@material-ui/icons/SwapVertOutlined'
 
 import { Link } from 'react-router-dom'
 
@@ -18,7 +20,7 @@ import Pagination from '@material-ui/lab/Pagination'
 import { useStyles } from './styles'
 
 import { useMarcas } from '../../hooks/useMarcas'
-import { deleteMarca } from '../../api/marcas'
+import { deleteMarca, ordenacaoMarca } from '../../api/marcas'
 
 interface PropsMarcas {
   id: number
@@ -30,6 +32,8 @@ export const Marcas: React.FC = () => {
   const classes = useStyles()
 
   const { page, setPage } = useMarcas()
+
+  const [selectedOrder, setSelectedOrder] = React.useState<boolean>(false)
 
   const handleChangePage = (e: any, currentPage: number) => {
     setPage(currentPage)
@@ -50,6 +54,13 @@ export const Marcas: React.FC = () => {
     })
   }
 
+  const handleOrder = (value: string) => {
+    setSelectedOrder(!selectedOrder)
+    ordenacaoMarca(value, selectedOrder ? 'desc' : 'asc', page).then(
+      (response) => setMarcas(response.data),
+    )
+  }
+
   return (
     <div>
       <div className={classes.root}>
@@ -66,29 +77,33 @@ export const Marcas: React.FC = () => {
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
-              <TableBody>
-                {marcas?.map((marca: PropsMarcas) => (
-                  <TableRow>
-                    <TableCell
-                      style={{ width: 1200 }}
-                      component="th"
-                      scope="row"
-                    >
-                      {marca.nome}
-                    </TableCell>
-                    <TableCell align="right">
-                      <Button
-                        color="primary"
-                        onClick={() => deleteMarcas(marca.id)}
-                        size="small"
-                      >
-                        Excluir
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
+              <TableRow>
+                <TableCell>
+                  Marcas
+                  <IconButton onClick={() => handleOrder('valor')}>
+                    <SwapVertOutlinedIcon fontSize="small" />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
             </TableHead>
+            <TableBody>
+              {marcas?.map((marca: PropsMarcas) => (
+                <TableRow>
+                  <TableCell style={{ width: 1200 }} component="th" scope="row">
+                    {marca.nome}
+                  </TableCell>
+                  <TableCell align="right">
+                    <Button
+                      color="primary"
+                      onClick={() => deleteMarcas(marca.id)}
+                      size="small"
+                    >
+                      Excluir
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
           </Table>
         </TableContainer>
       </div>
