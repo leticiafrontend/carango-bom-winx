@@ -9,6 +9,11 @@ export const useStyles = makeStyles({
     justifyContent: 'space-between',
     paddingRight: '7px',
   },
+  pagination: {
+    display: 'flex',
+    marginTop: '10px',
+    justifyContent: 'center',
+  },
   table: {
     minWidth: 100,
   },

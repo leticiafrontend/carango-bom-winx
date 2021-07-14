@@ -13,6 +13,8 @@ import {
 } from '@material-ui/core'
 
 import { Link } from 'react-router-dom'
+
+import Pagination from '@material-ui/lab/Pagination'
 import { useStyles } from './styles'
 
 import { useMarcas } from '../../hooks/useMarcas'
@@ -24,21 +26,26 @@ interface PropsMarcas {
 }
 
 export const Marcas: React.FC = () => {
-  const marcas = useMarcas()
+  const { marcas, setMarcas } = useMarcas()
   const classes = useStyles()
+
+  const { page, setPage } = useMarcas()
+
+  const handleChangePage = (e: any, currentPage: number) => {
+    setPage(currentPage)
+  }
 
   const deleteMarcas = (id: number) => {
     let index: number | undefined
-    deleteMarca(id).then((response) => {
-      console.log(response)
 
-      index = marcas?.marcas?.findIndex((marca) => marca.id === id)
-      marcas?.setMarcas(undefined)
+    deleteMarca(id).then(() => {
+      index = marcas?.findIndex((marca) => marca.id === id)
+      setMarcas(undefined)
 
       setTimeout(() => {
-        const newArray: any = marcas?.marcas
+        const newArray: any = marcas
         if (index || index === 0) newArray?.splice(index, 1)
-        marcas?.setMarcas(newArray)
+        setMarcas(newArray)
       }, 1)
     })
   }
@@ -60,7 +67,7 @@ export const Marcas: React.FC = () => {
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableBody>
-                {marcas?.marcas?.map((marca: PropsMarcas) => (
+                {marcas?.map((marca: PropsMarcas) => (
                   <TableRow>
                     <TableCell
                       style={{ width: 1200 }}
@@ -84,6 +91,14 @@ export const Marcas: React.FC = () => {
             </TableHead>
           </Table>
         </TableContainer>
+      </div>
+      <div className={classes.pagination}>
+        <Pagination
+          page={page}
+          onChange={handleChangePage}
+          color="primary"
+          count={4}
+        />
       </div>
     </div>
   )
