@@ -41,7 +41,7 @@ export const VeiculosCadastro = () => {
       id: Math.floor(Math.random() * 1000),
       marcaId,
       modelo,
-      valor,
+      valor: parseInt(valor, 10),
     })
     history.push('/veiculos')
   }

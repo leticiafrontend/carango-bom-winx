@@ -171,6 +171,13 @@
       "marcaId": 7,
       "modelo": "a01",
       "valor": "100000"
+    },
+    {
+      "ano": "1999",
+      "id": 413,
+      "marcaId": 7,
+      "modelo": "teste",
+      "valor": 100000
     }
   ],
   "dashboard": [
