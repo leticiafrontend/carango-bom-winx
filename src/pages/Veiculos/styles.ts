@@ -13,5 +13,8 @@ export const veiculosStyle = makeStyles(() =>
     title: {
       fontWeight: 500,
     },
+    filter: {
+      paddingRight: '16px',
+    },
   }),
 )
