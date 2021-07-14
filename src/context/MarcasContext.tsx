@@ -6,6 +6,7 @@ import React, {
   Dispatch,
   SetStateAction,
 } from 'react'
+import { useSnackbar } from 'notistack'
 import { getMarcas } from '../api/marcas'
 
 interface Marcas {
@@ -28,11 +29,22 @@ export const MarcasContextProvider = ({
   children,
 }: MarcasContextProviderProp) => {
   const [marcas, setMarcas] = useState<[Marcas]>()
+  const { enqueueSnackbar } = useSnackbar()
 
   useEffect(() => {
     getMarcas()
-      .then((response) => setMarcas(response.data))
-      .catch((err) => console.log(err))
+      .then((response) => {
+        setMarcas(response.data)
+        enqueueSnackbar('Marcas carregadas com sucesso', {
+          variant: 'success',
+        })
+      })
+      .catch((err) => {
+        enqueueSnackbar('Não foi possivel carregar as marcas', {
+          variant: 'error',
+        })
+        console.log(err)
+      })
   }, [])
 
   return (
