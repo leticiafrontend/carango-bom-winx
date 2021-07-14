@@ -15,14 +15,16 @@ import {
 } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import FilterListIcon from '@material-ui/icons/FilterList'
+import SwapVertOutlinedIcon from '@material-ui/icons/SwapVertOutlined'
 import { useVeiculos } from '../../hooks/useVeiculos'
 import { veiculosStyle } from './styles'
-import { deleteVeiculo } from '../../api/veiculos'
+import { deleteVeiculo, ordenacaoVeiculo } from '../../api/veiculos'
 import { useMarcas } from '../../hooks/useMarcas'
 
 export const Veiculos = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const [selectedMarca, setSelectedMarca] = React.useState<any>(0)
+  const [selectedOrder, setSelectedOrder] = React.useState<boolean>(false)
   const { veiculos, setVeiculos } = useVeiculos()
   const { allMarcas } = useMarcas()
   const classe = veiculosStyle()
@@ -52,6 +54,13 @@ export const Veiculos = () => {
     setSelectedMarca(id)
   }
 
+  const handleOrder = (value: string) => {
+    setSelectedOrder(!selectedOrder)
+    ordenacaoVeiculo(value, selectedOrder ? 'desc' : 'asc').then((response) =>
+      setVeiculos(response.data),
+    )
+  }
+
   return (
     <>
       <div className={classe.root}>
@@ -68,10 +77,30 @@ export const Veiculos = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Marca</TableCell>
-              <TableCell align="left">Modelo</TableCell>
-              <TableCell align="left">Ano</TableCell>
-              <TableCell align="left">Valor</TableCell>
+              <TableCell>
+                Marca
+                <IconButton onClick={() => handleOrder('marca')}>
+                  <SwapVertOutlinedIcon fontSize="small" />
+                </IconButton>
+              </TableCell>
+              <TableCell align="left">
+                Modelo
+                <IconButton onClick={() => handleOrder('modelo')}>
+                  <SwapVertOutlinedIcon fontSize="small" />
+                </IconButton>
+              </TableCell>
+              <TableCell align="left">
+                Ano
+                <IconButton onClick={() => handleOrder('ano')}>
+                  <SwapVertOutlinedIcon fontSize="small" />
+                </IconButton>
+              </TableCell>
+              <TableCell align="left">
+                Valor{' '}
+                <IconButton onClick={() => handleOrder('valor')}>
+                  <SwapVertOutlinedIcon fontSize="small" />
+                </IconButton>
+              </TableCell>
               <TableCell />
               <TableCell align="right">
                 <div className={classe.filter}>
