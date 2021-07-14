@@ -6,7 +6,8 @@ import React, {
   Dispatch,
   SetStateAction,
 } from 'react'
-import { getMarcas } from '../api/marcas'
+import { useSnackbar } from 'notistack'
+import { getAllMarcas, getMarcas } from '../api/marcas'
 
 interface Marcas {
   id: number
@@ -18,6 +19,7 @@ interface MarcasContextProp {
   setMarcas: Dispatch<SetStateAction<[Marcas] | undefined>>
   page: number
   setPage: Dispatch<SetStateAction<number>>
+  allMarcas: any
 }
 
 interface MarcasContextProviderProp {
@@ -30,16 +32,36 @@ export const MarcasContextProvider = ({
   children,
 }: MarcasContextProviderProp) => {
   const [marcas, setMarcas] = useState<[Marcas]>()
+  const [allMarcas, setAllMarcas] = useState<any>()
   const [page, setPage] = useState(1)
+  const { enqueueSnackbar } = useSnackbar()
 
   useEffect(() => {
-    getMarcas(page)
-      .then((response) => setMarcas(response.data))
-      .catch((err) => console.log(err))
+    getAllMarcas()
+      .then((response) => {
+        setAllMarcas(response.data)
+        enqueueSnackbar('Marcas carregadas com sucesso', {
+          variant: 'success',
+        })
+      })
+      .catch((err) => {
+        enqueueSnackbar('Não foi possivel carregar as marcas', {
+          variant: 'error',
+        })
+        console.log(err)
+      })
+  }, [])
+
+  useEffect(() => {
+    getMarcas(page).then((response) => {
+      setMarcas(response.data)
+    })
   }, [page])
 
   return (
-    <MarcasContext.Provider value={{ marcas, setMarcas, page, setPage }}>
+    <MarcasContext.Provider
+      value={{ marcas, setMarcas, page, setPage, allMarcas }}
+    >
       {children}
     </MarcasContext.Provider>
   )
