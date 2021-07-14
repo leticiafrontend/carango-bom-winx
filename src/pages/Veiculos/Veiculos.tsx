@@ -10,17 +10,10 @@ import {
   Button,
   Typography,
 } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import { useVeiculos } from '../../hooks/useVeiculos'
 import { veiculosStyle } from './styles'
 import { deleteVeiculo } from '../../api/veiculos'
-
-// interface PropsVeiculos {
-//   id: number
-//   modelo: string
-//   ano: number
-//   valor: number
-//   marca: any
-// }
 
 export const Veiculos = () => {
   const veiculos = useVeiculos()
@@ -48,9 +41,11 @@ export const Veiculos = () => {
         <Typography className={classe.title} variant="h5" color="secondary">
           Lista de Veículos
         </Typography>
-        <Button size="small" variant="contained" color="primary">
-          Incluir
-        </Button>
+        <Link to="/veiculos/cadastro">
+          <Button size="small" variant="contained" color="primary">
+            Incluir
+          </Button>
+        </Link>
       </div>
       <TableContainer component={Paper}>
         <Table>
