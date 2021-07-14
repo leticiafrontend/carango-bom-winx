@@ -16,27 +16,30 @@ interface Marcas {
 interface MarcasContextProp {
   marcas: Marcas[] | undefined
   setMarcas: Dispatch<SetStateAction<[Marcas] | undefined>>
+  page: number
+  setPage: Dispatch<SetStateAction<number>>
 }
 
 interface MarcasContextProviderProp {
   children: ReactNode
 }
 
-export const MarcasContext = createContext({} as MarcasContextProp | undefined)
+export const MarcasContext = createContext({} as MarcasContextProp)
 
 export const MarcasContextProvider = ({
   children,
 }: MarcasContextProviderProp) => {
   const [marcas, setMarcas] = useState<[Marcas]>()
+  const [page, setPage] = useState(1)
 
   useEffect(() => {
-    getMarcas()
+    getMarcas(page)
       .then((response) => setMarcas(response.data))
       .catch((err) => console.log(err))
-  }, [])
+  }, [page])
 
   return (
-    <MarcasContext.Provider value={{ marcas, setMarcas }}>
+    <MarcasContext.Provider value={{ marcas, setMarcas, page, setPage }}>
       {children}
     </MarcasContext.Provider>
   )
