@@ -97,7 +97,7 @@ export const Marcas: React.FC = () => {
           page={page}
           onChange={handleChangePage}
           color="primary"
-          count={marcas && marcas.length / 10}
+          count={4}
         />
       </div>
     </div>
