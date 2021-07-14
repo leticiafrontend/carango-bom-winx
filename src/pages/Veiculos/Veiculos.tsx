@@ -16,21 +16,19 @@ import { veiculosStyle } from './styles'
 import { deleteVeiculo } from '../../api/veiculos'
 
 export const Veiculos = () => {
-  const veiculos = useVeiculos()
+  const { veiculos, setVeiculos } = useVeiculos()
   const classe = veiculosStyle()
 
   const deleteVeiculos = (id: number) => {
     let index: number | undefined
-    deleteVeiculo(id).then((response) => {
-      console.log(response)
-
-      index = veiculos?.veiculos?.findIndex((veiculo) => veiculo.id === id)
-      veiculos?.setVeiculos(undefined)
+    deleteVeiculo(id).then(() => {
+      index = veiculos?.findIndex((veiculo) => veiculo.id === id)
+      setVeiculos(undefined)
 
       setTimeout(() => {
-        const newArray: any = veiculos?.veiculos
+        const newArray: any = veiculos
         if (index || index === 0) newArray?.splice(index, 1)
-        veiculos?.setVeiculos(newArray)
+        setVeiculos(newArray)
       }, 1)
     })
   }
@@ -60,7 +58,7 @@ export const Veiculos = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {veiculos?.veiculos?.map((veiculo: any) => (
+            {veiculos?.map((veiculo: any) => (
               <TableRow key={veiculo.id}>
                 <TableCell component="th" scope="row">
                   {veiculo.marca.nome}
