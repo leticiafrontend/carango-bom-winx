@@ -1,44 +1,137 @@
 {
   "marcas": [
-    { "id": 7, "nome": "Audi" },
-    { "id": 9, "nome": "BMW" },
-    { "id": 17, "nome": "Chrysler" },
-    { "id": 18, "nome": "Citroën" },
-    { "id": 27, "nome": "Fiat" },
-    { "id": 29, "nome": "Ford" },
-    { "id": 33, "nome": "GM - Chevrolet" },
-    { "id": 35, "nome": "Gurgel" },
-    { "id": 38, "nome": "Honda" },
-    { "id": 39, "nome": "Hyundai" },
-    { "id": 42, "nome": "JAC" },
-    { "id": 44, "nome": "Jeep" },
-    { "id": 47, "nome": "Kia Motors" },
-    { "id": 48, "nome": "Lada" },
-    { "id": 50, "nome": "Land Rover" },
-    { "id": 52, "nome": "LIFAN" },
-    { "id": 60, "nome": "Mercedes-Benz" },
-    { "id": 63, "nome": "MINI" },
-    { "id": 64, "nome": "Mitsubishi" },
-    { "id": 66, "nome": "Nissan" },
-    { "id": 67, "nome": "Peugeot" },
-    { "id": 70, "nome": "Porsche" },
-    { "id": 73, "nome": "Renault" },
-    { "id": 81, "nome": "SSANGYONG" },
-    { "id": 82, "nome": "Subaru" },
-    { "id": 83, "nome": "Suzuki" },
-    { "id": 85, "nome": "Toyota" },
-    { "id": 86, "nome": "Troller" },
-    { "id": 87, "nome": "Volvo" },
-    { "id": 88, "nome": "VW - VolksWagen" }
+    {
+      "id": 7,
+      "nome": "Audi"
+    },
+    {
+      "id": 17,
+      "nome": "Chrysler"
+    },
+    {
+      "id": 18,
+      "nome": "Citroën"
+    },
+    {
+      "id": 27,
+      "nome": "Fiat"
+    },
+    {
+      "id": 29,
+      "nome": "Ford"
+    },
+    {
+      "id": 33,
+      "nome": "GM - Chevrolet"
+    },
+    {
+      "id": 35,
+      "nome": "Gurgel"
+    },
+    {
+      "id": 38,
+      "nome": "Honda"
+    },
+    {
+      "id": 39,
+      "nome": "Hyundai"
+    },
+    {
+      "id": 42,
+      "nome": "JAC"
+    },
+    {
+      "id": 44,
+      "nome": "Jeep"
+    },
+    {
+      "id": 47,
+      "nome": "Kia Motors"
+    },
+    {
+      "id": 48,
+      "nome": "Lada"
+    },
+    {
+      "id": 50,
+      "nome": "Land Rover"
+    },
+    {
+      "id": 52,
+      "nome": "LIFAN"
+    },
+    {
+      "id": 60,
+      "nome": "Mercedes-Benz"
+    },
+    {
+      "id": 63,
+      "nome": "MINI"
+    },
+    {
+      "id": 64,
+      "nome": "Mitsubishi"
+    },
+    {
+      "id": 66,
+      "nome": "Nissan"
+    },
+    {
+      "id": 67,
+      "nome": "Peugeot"
+    },
+    {
+      "id": 70,
+      "nome": "Porsche"
+    },
+    {
+      "id": 73,
+      "nome": "Renault"
+    },
+    {
+      "id": 81,
+      "nome": "SSANGYONG"
+    },
+    {
+      "id": 82,
+      "nome": "Subaru"
+    },
+    {
+      "id": 83,
+      "nome": "Suzuki"
+    },
+    {
+      "id": 85,
+      "nome": "Toyota"
+    },
+    {
+      "id": 86,
+      "nome": "Troller"
+    },
+    {
+      "id": 87,
+      "nome": "Volvo"
+    },
+    {
+      "id": 88,
+      "nome": "VW - VolksWagen"
+    },
+    {
+      "data": {
+        "id": 78,
+        "nome": "Ferrari"
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "id": 89
+    },
+    {
+      "id": 679,
+      "nome": "Lexus"
+    }
   ],
   "veiculos": [
-    {
-      "id": 1,
-      "modelo": "EcoSport FREESTYLE 1.5 12V Flex 5p Aut.",
-      "ano": 2019,
-      "valor": 76835,
-      "marcaId": 29
-    },
     {
       "id": 2,
       "modelo": "Ka 1.0 8V/1.0 8V ST Flex 3p",
