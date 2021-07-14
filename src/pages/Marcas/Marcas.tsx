@@ -58,7 +58,7 @@ export const Marcas: React.FC = () => {
         </Typography>
         <Link to="/marcas/cadastro">
           <Button size="small" variant="contained" color="primary">
-            Incluir
+            Incluir Marca
           </Button>
         </Link>
       </div>

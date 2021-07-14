@@ -38,9 +38,6 @@ export const VeiculosContextProvider = ({
     getVeiculos()
       .then((response) => {
         setVeiculos(response.data)
-        enqueueSnackbar('Veiculos carregados com sucesso', {
-          variant: 'success',
-        })
       })
       .catch((err) => {
         enqueueSnackbar('Não foi possivel carregar os veiculos', {

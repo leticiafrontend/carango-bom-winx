@@ -40,9 +40,6 @@ export const MarcasContextProvider = ({
     getAllMarcas()
       .then((response) => {
         setAllMarcas(response.data)
-        enqueueSnackbar('Marcas carregadas com sucesso', {
-          variant: 'success',
-        })
       })
       .catch((err) => {
         enqueueSnackbar('Não foi possivel carregar as marcas', {

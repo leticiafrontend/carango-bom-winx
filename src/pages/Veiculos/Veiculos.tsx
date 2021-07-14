@@ -41,7 +41,7 @@ export const Veiculos = () => {
         </Typography>
         <Link to="/veiculos/cadastro">
           <Button size="small" variant="contained" color="primary">
-            Incluir
+            Incluir Veículo
           </Button>
         </Link>
       </div>

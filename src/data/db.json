@@ -178,6 +178,20 @@
       "marcaId": 7,
       "modelo": "teste",
       "valor": 100000
+    },
+    {
+      "ano": "2014",
+      "id": 254,
+      "marcaId": 7,
+      "modelo": "Q3 3.0",
+      "valor": 78000
+    },
+    {
+      "ano": "2001",
+      "id": 302,
+      "marcaId": 7,
+      "modelo": "Teste",
+      "valor": 23000
     }
   ],
   "dashboard": [

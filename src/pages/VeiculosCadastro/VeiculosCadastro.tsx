@@ -25,7 +25,7 @@ export const VeiculosCadastro = () => {
   const [modelo, setModelo] = useState<string>('')
   const [ano, setAno] = useState<string>('')
   const [valor, setValor] = useState<string>('')
-  const [marcaId, setMarcaId] = useState<number>(7)
+  const [marcaId, setMarcaId] = useState<number>(0)
   const history = useHistory()
 
   const [erros, setErros] = useState<any>({
@@ -39,7 +39,7 @@ export const VeiculosCadastro = () => {
     postVeiculos({
       ano,
       id: Math.floor(Math.random() * 1000),
-      marcaId,
+      marcaId: marcaId || 7,
       modelo,
       valor: parseInt(valor, 10),
     })
@@ -137,7 +137,8 @@ export const VeiculosCadastro = () => {
               !erros.valor.valid ||
               modelo.length < 3 ||
               valor.length < 4 ||
-              ano.length < 4
+              ano.length < 4 ||
+              marcaId === 0
             }
           >
             Cadastrar

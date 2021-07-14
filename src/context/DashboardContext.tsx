@@ -34,9 +34,6 @@ export const DashboardContextProvider = ({ children }: DashContextProvider) => {
     getDashboard()
       .then((response) => {
         setDash(response.data)
-        enqueueSnackbar('Dashboard carregada com sucesso', {
-          variant: 'success',
-        })
       })
       .catch((err) => {
         enqueueSnackbar('Não foi possivel carregar a Dashboard', {
