@@ -6,6 +6,7 @@ import React, {
   SetStateAction,
   ReactNode,
 } from 'react'
+import { useSnackbar } from 'notistack'
 import { getVeiculos } from '../api/veiculos'
 
 interface Veiculo {
@@ -33,11 +34,22 @@ export const VeiculosContextProvider = ({
   children,
 }: VeiculosContextProviderProps) => {
   const [veiculos, setVeiculos] = useState<[Veiculo]>()
+  const { enqueueSnackbar } = useSnackbar()
 
   useEffect(() => {
     getVeiculos()
-      .then((response) => setVeiculos(response.data))
-      .catch((err) => console.log(err))
+      .then((response) => {
+        setVeiculos(response.data)
+        enqueueSnackbar('Veiculos carregados com sucesso', {
+          variant: 'success',
+        })
+      })
+      .catch((err) => {
+        enqueueSnackbar('Não foi possivel carregar os veiculos', {
+          variant: 'error',
+        })
+        console.log(err)
+      })
   }, [])
 
   return (

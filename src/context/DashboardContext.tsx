@@ -6,7 +6,7 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import { enqueueSnackbar } from 'notistack'
+import { useSnackbar } from 'notistack'
 import { getDashboard } from '../api/dashboard'
 
 interface Dash {
@@ -28,6 +28,7 @@ export const DashboardContext = createContext({} as DashContext | undefined)
 
 export const DashboardContextProvider = ({ children }: DashContextProvider) => {
   const [dash, setDash] = useState<[Dash]>()
+  const { enqueueSnackbar } = useSnackbar()
 
   useEffect(() => {
     getDashboard()
@@ -37,7 +38,12 @@ export const DashboardContextProvider = ({ children }: DashContextProvider) => {
           variant: 'success',
         })
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        enqueueSnackbar('Não foi possivel carregar a Dashboard', {
+          variant: 'error',
+        })
+        console.log(err)
+      })
   }, [])
 
   return (
