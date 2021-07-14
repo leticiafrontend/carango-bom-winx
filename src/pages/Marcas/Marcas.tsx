@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 
 import {
@@ -27,7 +26,7 @@ interface PropsMarcas {
 }
 
 export const Marcas: React.FC = () => {
-  const marcas = useMarcas()
+  const { marcas, setMarcas } = useMarcas()
   const classes = useStyles()
 
   const { page, setPage } = useMarcas()
@@ -38,16 +37,15 @@ export const Marcas: React.FC = () => {
 
   const deleteMarcas = (id: number) => {
     let index: number | undefined
-    deleteMarca(id).then((response) => {
-      console.log(response)
 
-      index = marcas?.marcas?.findIndex((marca) => marca.id === id)
-      marcas?.setMarcas(undefined)
+    deleteMarca(id).then(() => {
+      index = marcas?.findIndex((marca) => marca.id === id)
+      setMarcas(undefined)
 
       setTimeout(() => {
-        const newArray: any = marcas?.marcas
+        const newArray: any = marcas
         if (index || index === 0) newArray?.splice(index, 1)
-        marcas?.setMarcas(newArray)
+        setMarcas(newArray)
       }, 1)
     })
   }
@@ -69,7 +67,7 @@ export const Marcas: React.FC = () => {
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableBody>
-                {marcas?.marcas?.map((marca: PropsMarcas) => (
+                {marcas?.map((marca: PropsMarcas) => (
                   <TableRow>
                     <TableCell
                       style={{ width: 1200 }}
@@ -99,7 +97,7 @@ export const Marcas: React.FC = () => {
           page={page}
           onChange={handleChangePage}
           color="primary"
-          count={10}
+          count={marcas && marcas.length / 10}
         />
       </div>
     </div>
