@@ -20,7 +20,7 @@ interface PropsMarcas {
 
 export const VeiculosCadastro = () => {
   const classes = veiculosCadastroStyle()
-  const marcas = useMarcas()
+  const { allMarcas } = useMarcas()
 
   const [modelo, setModelo] = useState<string>('')
   const [ano, setAno] = useState<string>('')
@@ -85,7 +85,7 @@ export const VeiculosCadastro = () => {
               value={marcaId}
               onChange={(e: any) => setMarcaId(e.target.value)}
             >
-              {marcas?.marcas?.map((marca: PropsMarcas) => (
+              {allMarcas?.map((marca: PropsMarcas) => (
                 <MenuItem value={marca.id}>{marca.nome}</MenuItem>
               ))}
             </Select>
