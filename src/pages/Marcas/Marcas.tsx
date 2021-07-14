@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 
 import {
@@ -13,6 +14,8 @@ import {
 } from '@material-ui/core'
 
 import { Link } from 'react-router-dom'
+
+import Pagination from '@material-ui/lab/Pagination'
 import { useStyles } from './styles'
 
 import { useMarcas } from '../../hooks/useMarcas'
@@ -26,6 +29,12 @@ interface PropsMarcas {
 export const Marcas: React.FC = () => {
   const marcas = useMarcas()
   const classes = useStyles()
+
+  const { page, setPage } = useMarcas()
+
+  const handleChangePage = (e: any, currentPage: number) => {
+    setPage(currentPage)
+  }
 
   const deleteMarcas = (id: number) => {
     let index: number | undefined
@@ -84,6 +93,14 @@ export const Marcas: React.FC = () => {
             </TableHead>
           </Table>
         </TableContainer>
+      </div>
+      <div className={classes.pagination}>
+        <Pagination
+          page={page}
+          onChange={handleChangePage}
+          color="primary"
+          count={10}
+        />
       </div>
     </div>
   )

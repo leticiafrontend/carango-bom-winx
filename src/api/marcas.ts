@@ -2,7 +2,8 @@ import { api } from '../services/api'
 
 const headers = { 'Content-Type': 'application/json' }
 
-export const getMarcas = () => api.get('/marcas')
+export const getMarcas = (page: number) =>
+  api.get(`/marcas?_limit=10&_page=${page}`)
 
 export const postMarcas = (data: any) => api.post('/marcas', data, { headers })
 
