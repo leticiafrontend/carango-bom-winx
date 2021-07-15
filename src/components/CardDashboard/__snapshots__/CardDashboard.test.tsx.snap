@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardDashboard component O snapshot do componente deve permanecer sempre o mesmo 1`] = `
+<div
+  class="MuiPaper-root MuiCard-root makeStyles-root-1 MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    class="MuiCardContent-root"
+  >
+    <h5
+      class="MuiTypography-root makeStyles-title-2 MuiTypography-h5 MuiTypography-colorSecondary"
+    >
+      Fiat
+    </h5>
+    <h6
+      class="MuiTypography-root makeStyles-subtitle-3 MuiTypography-h6"
+    >
+      R$ 1.000,00
+    </h6>
+    <h6
+      class="MuiTypography-root makeStyles-subtitle-3 MuiTypography-h6"
+    >
+      Carros: 
+      9
+    </h6>
+  </div>
+</div>
+`;
