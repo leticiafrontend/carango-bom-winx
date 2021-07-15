@@ -20,6 +20,7 @@ interface MarcasContextProp {
   page: number
   setPage: Dispatch<SetStateAction<number>>
   allMarcas: any
+  setAtualizar: Dispatch<SetStateAction<any>>
 }
 
 interface MarcasContextProviderProp {
@@ -34,6 +35,7 @@ export const MarcasContextProvider = ({
   const [marcas, setMarcas] = useState<[Marcas]>()
   const [allMarcas, setAllMarcas] = useState<any>()
   const [page, setPage] = useState(1)
+  const [atualizar, setAtualizar] = useState<any>()
   const { enqueueSnackbar } = useSnackbar()
 
   useEffect(() => {
@@ -49,6 +51,15 @@ export const MarcasContextProvider = ({
   }, [])
 
   useEffect(() => {
+    setTimeout(() => {
+      getMarcas(page).then((response) => {
+        setMarcas(response.data)
+      })
+      setAtualizar(false)
+    }, 1000)
+  }, [atualizar])
+
+  useEffect(() => {
     getMarcas(page).then((response) => {
       setMarcas(response.data)
     })
@@ -56,7 +67,7 @@ export const MarcasContextProvider = ({
 
   return (
     <MarcasContext.Provider
-      value={{ marcas, setMarcas, page, setPage, allMarcas }}
+      value={{ marcas, setMarcas, page, setPage, allMarcas, setAtualizar }}
     >
       {children}
     </MarcasContext.Provider>

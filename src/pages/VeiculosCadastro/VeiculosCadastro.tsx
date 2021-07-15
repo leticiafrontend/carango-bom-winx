@@ -12,6 +12,7 @@ import { useHistory } from 'react-router-dom'
 import { veiculosCadastroStyle } from './styles'
 import { useMarcas } from '../../hooks/useMarcas'
 import { postVeiculos } from '../../api/veiculos'
+import { useVeiculos } from '../../hooks/useVeiculos'
 
 interface PropsMarcas {
   id: number
@@ -27,6 +28,7 @@ export const VeiculosCadastro = () => {
   const [valor, setValor] = useState<string>('')
   const [marcaId, setMarcaId] = useState<number>(0)
   const history = useHistory()
+  const { setAtualizar } = useVeiculos()
 
   const [erros, setErros] = useState<any>({
     modelo: { valid: true, text: '' },
@@ -48,6 +50,8 @@ export const VeiculosCadastro = () => {
       valor: parseInt(valor, 10),
     })
     history.push('/veiculos')
+    setAtualizar(true)
+    // window.location.reload()
   }
 
   const valid = (option: string, value: string) => {
