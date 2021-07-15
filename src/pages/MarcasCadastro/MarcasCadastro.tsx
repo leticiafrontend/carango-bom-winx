@@ -24,7 +24,6 @@ export const MarcasCadastro = () => {
     })
     history.push('/marcas')
     setAtualizar(true)
-    // window.location.reload()
   }
 
   const validMarca = (marca: any) => {

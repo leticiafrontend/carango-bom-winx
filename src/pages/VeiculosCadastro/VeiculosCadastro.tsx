@@ -51,7 +51,6 @@ export const VeiculosCadastro = () => {
     })
     history.push('/veiculos')
     setAtualizar(true)
-    // window.location.reload()
   }
 
   const valid = (option: string, value: string) => {
