@@ -27,6 +27,11 @@ const listRoutes: RotasProps[] = [
     component: Login,
   },
   {
+    path: '/sair',
+    exact: true,
+    component: Login,
+  },
+  {
     path: '/dashboard',
     exact: true,
     component: Dashboard,

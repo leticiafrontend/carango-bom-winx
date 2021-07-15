@@ -2,6 +2,15 @@
   "name": "carango-bom",
   "version": "0.1.0",
   "private": true,
+  "import / no-extraneous-dependencies": [
+    "error",
+    {
+      "devDependencies": [
+        "** / *. test.js",
+        "** / *. spec.js"
+      ]
+    }
+  ],
   "dependencies": {
     "@babel/types": "^7.14.5",
     "@material-ui/core": "^4.12.1",
@@ -53,10 +62,13 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^7.0.1",
     "@types/react-dom": "^17.0.9",
     "@types/react-router": "^5.1.16",
+    "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
+    "axios-mock-adapter": "^1.19.0",
     "eslint": "^7.30.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -66,6 +78,9 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "react-test": "^0.8.0",
+    "react-test-renderer": "^16.14.0",
+    "supertest": "^6.1.3"
   }
 }

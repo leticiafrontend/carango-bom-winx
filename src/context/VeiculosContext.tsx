@@ -22,6 +22,8 @@ interface VeiculosContextProps {
   veiculos: Veiculo[] | undefined
   setVeiculos: Dispatch<SetStateAction<[Veiculo] | undefined>>
   setAtualizar: Dispatch<SetStateAction<any>>
+  editVeiculo: any
+  setEditVeiculo: Dispatch<SetStateAction<any>>
 }
 
 interface VeiculosContextProviderProps {
@@ -36,6 +38,7 @@ export const VeiculosContextProvider = ({
   const [veiculos, setVeiculos] = useState<[Veiculo]>()
   const [atualizar, setAtualizar] = useState<any>()
   const { enqueueSnackbar } = useSnackbar()
+  const [editVeiculo, setEditVeiculo] = useState<any>(false)
 
   useEffect(() => {
     setTimeout(() => {
@@ -59,7 +62,15 @@ export const VeiculosContextProvider = ({
   }, [])
 
   return (
-    <VeiculosContext.Provider value={{ veiculos, setVeiculos, setAtualizar }}>
+    <VeiculosContext.Provider
+      value={{
+        veiculos,
+        setVeiculos,
+        editVeiculo,
+        setEditVeiculo,
+        setAtualizar,
+      }}
+    >
       {children}
     </VeiculosContext.Provider>
   )
