@@ -13,21 +13,27 @@ import {
   Menu,
   MenuItem,
 } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import FilterListIcon from '@material-ui/icons/FilterList'
 import SwapVertOutlinedIcon from '@material-ui/icons/SwapVertOutlined'
+
 import { useVeiculos } from '../../hooks/useVeiculos'
 import { veiculosStyle } from './styles'
-import { deleteVeiculo, ordenacaoVeiculo } from '../../api/veiculos'
+import {
+  deleteVeiculo,
+  getVeiculoId,
+  ordenacaoVeiculo,
+} from '../../api/veiculos'
 import { useMarcas } from '../../hooks/useMarcas'
 
 export const Veiculos = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const [selectedMarca, setSelectedMarca] = React.useState<any>(0)
   const [selectedOrder, setSelectedOrder] = React.useState<boolean>(false)
-  const { veiculos, setVeiculos } = useVeiculos()
+  const { veiculos, setVeiculos, setEditVeiculo } = useVeiculos()
   const { allMarcas } = useMarcas()
   const classe = veiculosStyle()
+  const history = useHistory()
 
   const deleteVeiculos = (id: number) => {
     let index: number | undefined
@@ -59,6 +65,12 @@ export const Veiculos = () => {
     ordenacaoVeiculo(value, selectedOrder ? 'desc' : 'asc').then((response) =>
       setVeiculos(response.data),
     )
+  }
+
+  const alterarVeiculos = async (id: number) => {
+    const response: any = await getVeiculoId(id)
+    setEditVeiculo(response)
+    history.push('/veiculos/cadastro')
   }
 
   return (
@@ -168,7 +180,12 @@ export const Veiculos = () => {
                     </Button>
                   </TableCell>
                   <TableCell align="right">
-                    <Button size="small" variant="contained" color="primary">
+                    <Button
+                      size="small"
+                      variant="contained"
+                      color="primary"
+                      onClick={() => alterarVeiculos(veiculo.id)}
+                    >
                       Alterar
                     </Button>
                   </TableCell>

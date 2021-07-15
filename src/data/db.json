@@ -21,10 +21,6 @@
       "nome": "GM - Chevrolet"
     },
     {
-      "id": 35,
-      "nome": "Gurgel"
-    },
-    {
       "id": 38,
       "nome": "Honda"
     },
@@ -179,18 +175,11 @@
   ],
   "veiculos": [
     {
-      "id": 2,
-      "modelo": "Ka 1.0 8V/1.0 8V ST Flex 3p",
-      "ano": 2013,
-      "valor": 21381,
-      "marcaId": 29
-    },
-    {
-      "id": 3,
-      "modelo": "AGILE LT 1.4 MPFI 8V FlexPower 5p",
       "ano": 2010,
-      "valor": 25104,
-      "marcaId": 33
+      "id": 3,
+      "marcaId": 33,
+      "modelo": "AGILE LT 1.4 MPFI 8V FlexPower 5p",
+      "valor": 3000
     },
     {
       "id": 6,
@@ -214,32 +203,11 @@
       "marcaId": 27
     },
     {
-      "ano": "1999",
-      "id": 413,
-      "marcaId": 7,
-      "modelo": "teste",
-      "valor": 100000
-    },
-    {
-      "ano": "2014",
-      "id": 254,
-      "marcaId": 7,
-      "modelo": "Q3 3.0",
-      "valor": 78000
-    },
-    {
       "ano": "2001",
       "id": 302,
       "marcaId": 7,
       "modelo": "Teste",
       "valor": 23000
-    },
-    {
-      "ano": "2013",
-      "id": 185,
-      "marcaId": 18,
-      "modelo": "c3 2.0",
-      "valor": 27000
     },
     {
       "ano": "2020",
@@ -268,6 +236,13 @@
       "marcaId": 27,
       "modelo": "palio",
       "valor": 12000
+    },
+    {
+      "ano": "2018",
+      "id": 981,
+      "marcaId": 7,
+      "modelo": "A10",
+      "valor": 66000
     }
   ],
   "dashboard": [
