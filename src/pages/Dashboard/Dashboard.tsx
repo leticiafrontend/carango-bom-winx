@@ -18,10 +18,10 @@ export const Dashboard: React.FC = () => {
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Grid className={classe.root} container spacing={2}>
-          <Grid item sm={12} xs={8}>
+          <Grid item xs={8}>
             <GraphicDashboard />
           </Grid>
-          <Grid item sm={12} xs={4}>
+          <Grid item xs={4}>
             <PierGraphicDashboard />
           </Grid>
         </Grid>
