@@ -89,6 +89,7 @@ export const Marcas: React.FC = () => {
                     <SwapVertOutlinedIcon fontSize="small" />
                   </IconButton>
                 </TableCell>
+                <TableCell />
               </TableRow>
             </TableHead>
             <TableBody>

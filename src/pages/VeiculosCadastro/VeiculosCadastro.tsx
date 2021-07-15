@@ -34,6 +34,10 @@ export const VeiculosCadastro = () => {
     valor: { valid: true, text: '' },
   })
 
+  const cancel = () => {
+    history.push('/veiculos')
+  }
+
   const submitForm = (e: any) => {
     e.preventDefault()
     postVeiculos({
@@ -143,7 +147,12 @@ export const VeiculosCadastro = () => {
           >
             Cadastrar
           </Button>
-          <Button size="large" variant="contained" color="secondary">
+          <Button
+            size="large"
+            variant="contained"
+            color="secondary"
+            onClick={() => cancel()}
+          >
             Cancelar
           </Button>
         </form>
