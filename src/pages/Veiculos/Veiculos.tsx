@@ -142,7 +142,9 @@ export const Veiculos = () => {
           </TableHead>
           <TableBody>
             {veiculos
-              ?.filter((x: any) => x.marca.id === selectedMarca)
+              ?.filter((x: any) =>
+                selectedMarca === 0 ? x : x.marca.id === selectedMarca,
+              )
               .map((veiculo: any) => (
                 <TableRow key={veiculo.id}>
                   <TableCell component="th" scope="row">
