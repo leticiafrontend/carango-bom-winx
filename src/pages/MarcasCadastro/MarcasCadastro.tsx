@@ -10,6 +10,10 @@ export const MarcasCadastro = () => {
   const [erros, setErros] = useState<any>({ marcas: { valid: true, text: '' } })
   const history = useHistory()
 
+  const cancel = () => {
+    history.push('/marcas')
+  }
+
   const submitForm = (e: any) => {
     e.preventDefault()
     postMarcas({
@@ -62,7 +66,12 @@ export const MarcasCadastro = () => {
           >
             Cadastrar
           </Button>
-          <Button size="large" variant="contained" color="secondary">
+          <Button
+            size="large"
+            variant="contained"
+            color="secondary"
+            onClick={() => cancel()}
+          >
             Cancelar
           </Button>
         </form>
