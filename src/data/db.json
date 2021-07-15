@@ -127,6 +127,54 @@
     {
       "id": 814,
       "nome": "Ferrari"
+    },
+    {
+      "id": 660,
+      "nome": "teste4"
+    },
+    {
+      "id": 603,
+      "nome": "tesla"
+    },
+    {
+      "id": 562,
+      "nome": "Lexus"
+    },
+    {
+      "id": 823,
+      "nome": "McLaren"
+    },
+    {
+      "id": 826,
+      "nome": "chocolate"
+    },
+    {
+      "id": 489,
+      "nome": "bolo"
+    },
+    {
+      "id": 445,
+      "nome": "cookie"
+    },
+    {
+      "id": 917,
+      "nome": "bala"
+    },
+    {
+      "id": 21,
+      "nome": "brigadeiro"
+    },
+    {
+      "id": 173,
+      "nome": "pizza"
+    },
+    {
+      "id": 964,
+      "nome": "coxinha"
+    },
+    {
+      "id": 691,
+      "nome": "pastel"
     }
   ],
   "veiculos": [
@@ -185,6 +233,41 @@
       "marcaId": 7,
       "modelo": "Teste",
       "valor": 23000
+    },
+    {
+      "ano": "2013",
+      "id": 185,
+      "marcaId": 18,
+      "modelo": "c3 2.0",
+      "valor": 27000
+    },
+    {
+      "ano": "2020",
+      "id": 450,
+      "marcaId": 44,
+      "modelo": "renegade",
+      "valor": 80000
+    },
+    {
+      "ano": "2020",
+      "id": 235,
+      "marcaId": 29,
+      "modelo": "fusion",
+      "valor": 85000
+    },
+    {
+      "ano": "2004",
+      "id": 157,
+      "marcaId": 38,
+      "modelo": "civic",
+      "valor": 27000
+    },
+    {
+      "ano": "2009",
+      "id": 17,
+      "marcaId": 27,
+      "modelo": "palio",
+      "valor": 12000
     }
   ],
   "dashboard": [

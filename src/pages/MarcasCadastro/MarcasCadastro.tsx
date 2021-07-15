@@ -3,12 +3,14 @@ import { Grid, TextField, Button } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import { marcasCadastroStyle } from './styles'
 import { postMarcas } from '../../api/marcas'
+import { useMarcas } from '../../hooks/useMarcas'
 
 export const MarcasCadastro = () => {
   const classes = marcasCadastroStyle()
   const [nameMarca, setNameMarca] = useState('')
   const [erros, setErros] = useState<any>({ marcas: { valid: true, text: '' } })
   const history = useHistory()
+  const { setAtualizar } = useMarcas()
 
   const cancel = () => {
     history.push('/marcas')
@@ -21,6 +23,7 @@ export const MarcasCadastro = () => {
       nome: nameMarca,
     })
     history.push('/marcas')
+    setAtualizar(true)
   }
 
   const validMarca = (marca: any) => {
