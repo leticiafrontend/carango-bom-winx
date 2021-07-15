@@ -1,185 +1,71 @@
 {
   "marcas": [
-    {
-      "id": 7,
-      "nome": "Audi"
-    },
-    {
-      "id": 18,
-      "nome": "Citroën"
-    },
-    {
-      "id": 27,
-      "nome": "Fiat"
-    },
-    {
-      "id": 29,
-      "nome": "Ford"
-    },
-    {
-      "id": 33,
-      "nome": "GM - Chevrolet"
-    },
-    {
-      "id": 38,
-      "nome": "Honda"
-    },
-    {
-      "id": 39,
-      "nome": "Hyundai"
-    },
-    {
-      "id": 42,
-      "nome": "JAC"
-    },
-    {
-      "id": 44,
-      "nome": "Jeep"
-    },
-    {
-      "id": 47,
-      "nome": "Kia Motors"
-    },
-    {
-      "id": 48,
-      "nome": "Lada"
-    },
-    {
-      "id": 50,
-      "nome": "Land Rover"
-    },
-    {
-      "id": 52,
-      "nome": "LIFAN"
-    },
-    {
-      "id": 60,
-      "nome": "Mercedes-Benz"
-    },
-    {
-      "id": 63,
-      "nome": "MINI"
-    },
-    {
-      "id": 64,
-      "nome": "Mitsubishi"
-    },
-    {
-      "id": 66,
-      "nome": "Nissan"
-    },
-    {
-      "id": 67,
-      "nome": "Peugeot"
-    },
-    {
-      "id": 70,
-      "nome": "Porsche"
-    },
-    {
-      "id": 73,
-      "nome": "Renault"
-    },
-    {
-      "id": 81,
-      "nome": "SSANGYONG"
-    },
-    {
-      "id": 82,
-      "nome": "Subaru"
-    },
-    {
-      "id": 83,
-      "nome": "Suzuki"
-    },
-    {
-      "id": 85,
-      "nome": "Toyota"
-    },
-    {
-      "id": 86,
-      "nome": "Troller"
-    },
-    {
-      "id": 87,
-      "nome": "Volvo"
-    },
-    {
-      "id": 88,
-      "nome": "VW - VolksWagen"
-    },
-    {
-      "id": 679,
-      "nome": "Lexus"
-    },
-    {
-      "id": 476,
-      "nome": "Teste"
-    },
-    {
-      "id": 159,
-      "nome": "Teste"
-    },
-    {
-      "id": 814,
-      "nome": "Ferrari"
-    },
-    {
-      "id": 660,
-      "nome": "teste4"
-    },
-    {
-      "id": 603,
-      "nome": "tesla"
-    },
-    {
-      "id": 562,
-      "nome": "Lexus"
-    },
-    {
-      "id": 823,
-      "nome": "McLaren"
-    },
-    {
-      "id": 826,
-      "nome": "chocolate"
-    },
-    {
-      "id": 489,
-      "nome": "bolo"
-    },
-    {
-      "id": 445,
-      "nome": "cookie"
-    },
-    {
-      "id": 917,
-      "nome": "bala"
-    },
-    {
-      "id": 21,
-      "nome": "brigadeiro"
-    },
-    {
-      "id": 173,
-      "nome": "pizza"
-    },
-    {
-      "id": 964,
-      "nome": "coxinha"
-    },
-    {
-      "id": 691,
-      "nome": "pastel"
-    }
+    { "id": 7, "nome": "Audi" },
+    { "id": 9, "nome": "BMW" },
+    { "id": 17, "nome": "Chrysler" },
+    { "id": 18, "nome": "Citroën" },
+    { "id": 27, "nome": "Fiat" },
+    { "id": 29, "nome": "Ford" },
+    { "id": 33, "nome": "GM - Chevrolet" },
+    { "id": 35, "nome": "Gurgel" },
+    { "id": 38, "nome": "Honda" },
+    { "id": 39, "nome": "Hyundai" },
+    { "id": 42, "nome": "JAC" },
+    { "id": 44, "nome": "Jeep" },
+    { "id": 47, "nome": "Kia Motors" },
+    { "id": 48, "nome": "Lada" },
+    { "id": 50, "nome": "Land Rover" },
+    { "id": 52, "nome": "LIFAN" },
+    { "id": 60, "nome": "Mercedes-Benz" },
+    { "id": 63, "nome": "MINI" },
+    { "id": 64, "nome": "Mitsubishi" },
+    { "id": 66, "nome": "Nissan" },
+    { "id": 67, "nome": "Peugeot" },
+    { "id": 70, "nome": "Porsche" },
+    { "id": 73, "nome": "Renault" },
+    { "id": 81, "nome": "SSANGYONG" },
+    { "id": 82, "nome": "Subaru" },
+    { "id": 83, "nome": "Suzuki" },
+    { "id": 85, "nome": "Toyota" },
+    { "id": 86, "nome": "Troller" },
+    { "id": 87, "nome": "Volvo" },
+    { "id": 88, "nome": "VW - VolksWagen" }
   ],
   "veiculos": [
     {
-      "ano": 2010,
+      "id": 1,
+      "modelo": "EcoSport FREESTYLE 1.5 12V Flex 5p Aut.",
+      "ano": 2019,
+      "valor": 76835,
+      "marcaId": 29
+    },
+    {
+      "id": 2,
+      "modelo": "Ka 1.0 8V/1.0 8V ST Flex 3p",
+      "ano": 2013,
+      "valor": 21381,
+      "marcaId": 29
+    },
+    {
       "id": 3,
-      "marcaId": 33,
       "modelo": "AGILE LT 1.4 MPFI 8V FlexPower 5p",
-      "valor": 3000
+      "ano": 2010,
+      "valor": 25104,
+      "marcaId": 33
+    },
+    {
+      "id": 4,
+      "modelo": "Celta 1.0/Super/N.Piq.1.0 MPFi VHC 8V 3p",
+      "ano": 2005,
+      "valor": 13390,
+      "marcaId": 33
+    },
+    {
+      "id": 5,
+      "modelo": "Fusca",
+      "ano": 1985,
+      "valor": 11147,
+      "marcaId": 88
     },
     {
       "id": 6,
@@ -201,48 +87,6 @@
       "ano": 2021,
       "valor": 71415,
       "marcaId": 27
-    },
-    {
-      "ano": "2001",
-      "id": 302,
-      "marcaId": 7,
-      "modelo": "Teste",
-      "valor": 23000
-    },
-    {
-      "ano": "2020",
-      "id": 450,
-      "marcaId": 44,
-      "modelo": "renegade",
-      "valor": 80000
-    },
-    {
-      "ano": "2020",
-      "id": 235,
-      "marcaId": 29,
-      "modelo": "fusion",
-      "valor": 85000
-    },
-    {
-      "ano": "2004",
-      "id": 157,
-      "marcaId": 38,
-      "modelo": "civic",
-      "valor": 27000
-    },
-    {
-      "ano": "2009",
-      "id": 17,
-      "marcaId": 27,
-      "modelo": "palio",
-      "valor": 12000
-    },
-    {
-      "ano": "2018",
-      "id": 981,
-      "marcaId": 7,
-      "modelo": "A10",
-      "valor": 66000
     }
   ],
   "dashboard": [
