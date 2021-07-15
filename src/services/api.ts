@@ -4,7 +4,8 @@ import axios from 'axios'
 // http://localhost:3001
 // Servidor online:
 // 'https://my-json-server.typicode.com/levelup-rchlo/carango-bom-api-fake'
-const url = 'http://localhost:3001'
+const url =
+  'https://my-json-server.typicode.com/levelup-rchlo/carango-bom-api-fake'
 
 export const api = axios.create({
   baseURL: url,
