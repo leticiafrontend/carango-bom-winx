@@ -123,12 +123,13 @@ export const Menu = ({ children }: MenuProps) => {
             'sair',
           ].map((text, index) => (
             <Link
+              key={text}
               to={`/${text
                 .toLowerCase()
                 .normalize('NFD')
                 .replace(/[\u0300-\u036f]/g, '')}`}
             >
-              <ListItem button key={text}>
+              <ListItem button>
                 <ListItemIcon>{icons(index)}</ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
