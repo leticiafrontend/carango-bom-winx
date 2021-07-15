@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Grid,
   TextField,
@@ -11,7 +11,8 @@ import {
 import { useHistory } from 'react-router-dom'
 import { veiculosCadastroStyle } from './styles'
 import { useMarcas } from '../../hooks/useMarcas'
-import { postVeiculos } from '../../api/veiculos'
+import { postVeiculos, putVeiculoId } from '../../api/veiculos'
+import { useVeiculos } from '../../hooks/useVeiculos'
 
 interface PropsMarcas {
   id: number
@@ -27,19 +28,30 @@ export const VeiculosCadastro = () => {
   const [valor, setValor] = useState<string>('')
   const [marcaId, setMarcaId] = useState<number>(0)
   const history = useHistory()
-
+  const { editVeiculo, setEditVeiculo } = useVeiculos()
   const [erros, setErros] = useState<any>({
     modelo: { valid: true, text: '' },
     ano: { valid: true, text: '' },
     valor: { valid: true, text: '' },
   })
 
+  useEffect(() => {
+    if (editVeiculo !== false) {
+      setModelo(editVeiculo.data.modelo)
+      setAno(editVeiculo.data.ano)
+      setMarcaId(editVeiculo.data.marcaId)
+      setValor(editVeiculo.data.valor)
+    }
+  }, [])
+
   const cancel = () => {
     history.push('/veiculos')
+    setEditVeiculo(false)
   }
 
   const submitForm = (e: any) => {
     e.preventDefault()
+    setEditVeiculo(false)
     postVeiculos({
       ano,
       id: Math.floor(Math.random() * 1000),
@@ -47,6 +59,22 @@ export const VeiculosCadastro = () => {
       modelo,
       valor: parseInt(valor, 10),
     })
+    history.push('/veiculos')
+  }
+
+  const submitEdit = (e: any) => {
+    e.preventDefault()
+    setEditVeiculo(false)
+    putVeiculoId(
+      {
+        ano,
+        id: editVeiculo.data.id,
+        marcaId: marcaId || 7,
+        modelo,
+        valor: parseInt(valor, 10),
+      },
+      editVeiculo.data.id,
+    )
     history.push('/veiculos')
   }
 
@@ -99,6 +127,7 @@ export const VeiculosCadastro = () => {
             variant="outlined"
             error={!erros.modelo.valid}
             helperText={erros.modelo.text}
+            value={modelo}
             onChange={(e) => setModelo(e.target.value)}
             onBlur={() => {
               const validModelo = valid('modelo', modelo)
@@ -111,6 +140,7 @@ export const VeiculosCadastro = () => {
             variant="outlined"
             error={!erros.ano.valid}
             helperText={erros.ano.text}
+            value={ano}
             onChange={(e) => setAno(e.target.value)}
             onBlur={() => {
               const validAno = valid('ano', ano)
@@ -123,6 +153,7 @@ export const VeiculosCadastro = () => {
             variant="outlined"
             error={!erros.valor.valid}
             helperText={erros.valor.text}
+            value={valor}
             onChange={(e) => setValor(e.target.value)}
             onBlur={() => {
               const validValor = valid('valor', valor)
@@ -134,7 +165,9 @@ export const VeiculosCadastro = () => {
             variant="contained"
             type="submit"
             color="primary"
-            onClick={(e) => submitForm(e)}
+            onClick={(e) =>
+              editVeiculo !== false ? submitEdit(e) : submitForm(e)
+            }
             disabled={
               !erros.modelo.valid ||
               !erros.ano.valid ||
@@ -145,7 +178,7 @@ export const VeiculosCadastro = () => {
               marcaId === 0
             }
           >
-            Cadastrar
+            {editVeiculo.length < 0 ? 'Cadastrar' : 'Editar'}
           </Button>
           <Button
             size="large"
