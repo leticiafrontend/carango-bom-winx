@@ -86,7 +86,7 @@ Acesse a URL http://localhost:3000/
 1. Digite o comando yarn mock para rodar a api localmente
 
 ```sh
-yarn install
+yarn mock
 ```
 
 ## ✅ Testes <a name="testes"></a>
